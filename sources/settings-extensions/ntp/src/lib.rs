@@ -8,6 +8,7 @@ use std::convert::Infallible;
 #[model(impl_default = true)]
 pub struct NtpSettingsV1 {
     time_servers: Vec<Url>,
+    options: Vec<str>,
 }
 
 type Result<T> = std::result::Result<T, Infallible>;
@@ -65,6 +66,7 @@ mod test {
             NtpSettingsV1::generate(None, None),
             Ok(GenerateResult::Complete(NtpSettingsV1 {
                 time_servers: None
+                options: None
             }))
         )
     }
