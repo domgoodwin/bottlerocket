@@ -8,7 +8,7 @@ use std::convert::Infallible;
 #[model(impl_default = true)]
 pub struct NtpSettingsV1 {
     time_servers: Vec<Url>,
-    options: Vec<str>,
+    options: Vec<String>,
 }
 
 type Result<T> = std::result::Result<T, Infallible>;
@@ -95,9 +95,9 @@ mod test {
         assert_eq!(
             ntp.options.clone().unwrap(),
             vec!(
-                Url::try_from("minpool").unwrap(),
+                Url::try_from("minpoll").unwrap(),
                 Url::try_from("1").unwrap(),
-                Url::try_from("maxpool").unwrap(),
+                Url::try_from("maxpoll").unwrap(),
                 Url::try_from("2").unwrap(),
             )
         );
