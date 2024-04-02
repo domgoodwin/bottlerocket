@@ -4,9 +4,7 @@ use std::process;
 
 /// We added the ability to set additional options for NTP
 fn run() -> Result<()> {
-    migrate(AddSettingsMigration(&[
-        "settings.ntp.options",
-    ]))
+    migrate(AddSettingsMigration(&["settings.ntp.options"]))
 }
 
 // Returning a Result from main makes it print a Debug representation of the error, but with Snafu

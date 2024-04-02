@@ -95,12 +95,7 @@ mod test {
         let ntp: NtpSettingsV1 = serde_json::from_str(test_json).unwrap();
         assert_eq!(
             ntp.options.clone().unwrap(),
-            vec!(
-                "minpoll",
-                "1",
-                "maxpoll",
-                "2",
-            )
+            vec!("minpoll", "1", "maxpoll", "2",)
         );
 
         let results = serde_json::to_string(&ntp).unwrap();
