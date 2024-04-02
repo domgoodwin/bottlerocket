@@ -24,7 +24,7 @@ TWOLITER_ALLOW_BINARY_INSTALL="true"
 
 # Allow Twoliter to be installed by building from sourcecode.
 TWOLITER_ALLOW_SOURCE_INSTALL="true"
-TARGET_CC="x86_64-unknown-linux-gnu"
+
 # If you know the version string returned by Twoliter will not match TWOLITER_VERSION (e.g. when you
 # are testing changes to Twoliter itself), set this to true to prevent re-installation.
 TWOLITER_SKIP_VERSION_CHECK="false"
