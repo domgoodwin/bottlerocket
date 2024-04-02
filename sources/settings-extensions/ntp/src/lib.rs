@@ -65,8 +65,8 @@ mod test {
         assert_eq!(
             NtpSettingsV1::generate(None, None),
             Ok(GenerateResult::Complete(NtpSettingsV1 {
-                time_servers: None
-                options: None
+                time_servers: None,
+                options: None,
             }))
         )
     }
@@ -88,17 +88,18 @@ mod test {
         assert_eq!(results, test_json);
     }
 
+    #[test]
     fn test_options_ntp() {
-        let test_json = r#"{"time-servers":["https://example.net","http://www.example.com"],"options": ["minpoll", "1", "maxpoll", "2"]}"#;
+        let test_json = r#"{"time-servers":["https://example.net","http://www.example.com"],"options":["minpoll","1","maxpoll","2"]}"#;
 
         let ntp: NtpSettingsV1 = serde_json::from_str(test_json).unwrap();
         assert_eq!(
             ntp.options.clone().unwrap(),
             vec!(
-                Url::try_from("minpoll").unwrap(),
-                Url::try_from("1").unwrap(),
-                Url::try_from("maxpoll").unwrap(),
-                Url::try_from("2").unwrap(),
+                "minpoll",
+                "1",
+                "maxpoll",
+                "2",
             )
         );
 
